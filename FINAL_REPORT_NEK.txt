@@ -1,0 +1,20 @@
+🛡️ SECURITY AUDIT REPORT: Identity Propagation & Normalization Risks
+Researcher: nek (Víctor Hugo Obando González)
+Target: Chrome Mobile / Vertex AI Agent Engine
+Environment: ZTE V30 (Android 11) via Termux
+Severity: P0 (Critical - Privilege Escalation / Identity Bypass)
+
+1. FRONTEND INTEGRITY: CSP Normalization Bug
+Verified SHA-256 Hashes (Nek Audit):
+- Baseline (Control): Kl72N+b4jo+QEiMUWEqFZEStc3fdN3+/r80yNy/xbIk=
+- UTF-8 Payload (⚡): LqIi5XtKhMDolJ6vIOXz33wWdtnXhW4oSdpBr7yoI14=
+- Corrupt Byte Sequence: tuGr6Jy+2jBCaQ9M9OFVlkKzl4x+9bocr8h6PQ8BjYU=
+
+2. IDENTITY AUDIT: JWT Structural Assertion
+PoC Assertion Token (RS256):
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJpc3MiOiAibmVrLXNlY3VyaXR5LXJlc2VhcmNoZXJAdmVydGV4LWFpLWF1ZGl0LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwKICAic2NvcGUiOiAiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9jbG91ZC1wbGF0Zm9ybSIsCiAgImF1ZCI6ICJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsCiAgImV4cCI6IDE3NzY4Njg4MTUsCiAgImlhdCI6IDE3NzY4NjUyMTUKfQ.IAKhEnCyuo_qLZUijBnRViQE-r9jMObO7csuMZuAjXqXbBGrkV7Uk-onN_cI6rNgrmPQpJxOeV63TDOOkuGN7ARp1u0Z2FU-HvZRW_S6ujqj9B0Ib8JLzGMoZsIv0Lsc8PiK9iJ-4ggjrU9mtICXEUwgpQeYtJRuSsyeFuFGXJ-uIJj6Swr1iL5P--jqJEPtr-vb9ysjuuz3QDk-lcxG6B7PanYB3OeFvH9edgkQqh7t33q3syYNA6PdNKza80TickT2w9fQVdP4227Hu5TUbjr8F6vO87J9ZNQfd2XkUW8SEGg3NBNvLc8E3fP77i8RAIqeoGyeoFgVgHIHTRiMLw
+
+3. CRITICAL FINDING: Confused Deputy & P0 Escalation
+The audit confirms a Trust of Internal Origin vulnerability. When the Agent Engine executes a Tool or Action, it defaults to a high-privilege System Service Account instead of the restricted User Context.
+
+Recommendation: Immediate implementation of Identity-Aware Proxy (IAP) for all Agent-to-Tool communications to prevent "Confused Deputy" attacks and metadata server exfiltration.
