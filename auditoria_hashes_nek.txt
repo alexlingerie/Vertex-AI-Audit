@@ -1,0 +1,25 @@
+==========================================================
+REPORTE DE INTEGRIDAD DE HASHES CSP - ENTORNO MÓVIL
+Investigador: Víctor Hugo Obando González (alias nek)
+Dispositivo: ZTE V30 (Android 11) + Termux
+Fecha: 22 de Abril de 2026
+==========================================================
+
+OBJETIVO:
+Demostrar el error de normalización UTF-8 entre la terminal 
+y el navegador al generar hashes para Origin Trials.
+
+PRUEBA 1: Script con caracteres estándar
+Script: "const nek = '54_54=BCP';"
+Hash SHA-256:
+Kl72N+b4jo+QEiMUWEqFZEStc3fdN3+/r80yNy/xbIk=
+
+PRUEBA 2: Script con caracteres especiales (Falla de Normalización)
+Script: "const nek = '⚡54_54=BCP';"
+Hash SHA-256 (Ideal):
+LqIi5XtKhMDolJ6vIOXz33wWdtnXhW4oSdpBr7yoI14=
+
+PRUEBA 3: Simulación de corrupción de caracteres (Error âœ)
+Script con error de encoding: "const nek = 'âœ⚡54_54=BCP';"
+Hash SHA-256 (Corrupto):
+tuGr6Jy+2jBCaQ9M9OFVlkKzl4x+9bocr8h6PQ8BjYU=
