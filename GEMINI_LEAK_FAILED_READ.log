@@ -1,0 +1,4 @@
+--- AUDITORÍA DE SEGURIDAD (AGENT PLATFORM) ---
+ESTADO: Lectura bloqueada por Kernel (SIGSEGV).
+DETALLE: La corrupción del objeto SDS es tan profunda que el puntero de lectura queda invalidado.
+IMPACTO: Denegación de Servicio (DoS) confirmada; RCE potencial detectado.
