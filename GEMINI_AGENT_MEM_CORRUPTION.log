@@ -1,0 +1,6 @@
+--- AUDITORÍA AGENT PLATFORM (CVE-2025-32023) ---
+TARGET: Gemini Enterprise Agent Platform
+STATUS: Memory Corruption Confirmed
+VECTOR: HLL Sparse Overflow (Negative Offset)
+RESEARCHER: nek (Víctor Hugo Obando González)
+PROTOCOL: ARCH-PROT-2025
