@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-04-22T22:53:00Z",
+  "researcher": "nek (Víctor Hugo Obando González)",
+  "target_project": "second-hold-478014-s3",
+  "project_number": "187068657537",
+  "image_digest": "sha256:0cbfbdcff8a5324a430c3c156f18bad5299789b2a652742d1c102610e2e4dbbd",
+  "vulnerability": "gVisor Sentry FD Exhaustion",
+  "intercepted_fds": [1000, 1002],
+  "platform": "Gemini Enterprise Agent Platform (Next '26)"
+}
